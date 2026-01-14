@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for contrast -->
+  <circle cx="50" cy="50" r="48" fill="#F5F5F5" stroke="#D0D0D0" stroke-width="2"/>
+  
+  <!-- V shape - symmetrical and centered -->
+  <path d="M 25 32 L 45 68 L 75 27" 
+        fill="none" 
+        stroke="#2D8659" 
+        stroke-width="8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>
