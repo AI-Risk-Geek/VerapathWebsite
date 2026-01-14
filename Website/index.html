@@ -68,6 +68,90 @@
             align-items: center;
         }
 
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 0.5rem;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--charcoal);
+            position: relative;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-toggle span::before {
+            top: -6px;
+        }
+
+        .nav-toggle span::after {
+            top: 6px;
+        }
+
+        .nav-toggle.active span {
+            background: transparent;
+        }
+
+        .nav-toggle.active span::before {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .nav-toggle.active span::after {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 2rem;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            padding: 1.5rem;
+            min-width: 240px;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.6rem 0;
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .mobile-menu .cta-button {
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
         .nav-links a {
             color: var(--slate);
             text-decoration: none;
@@ -123,6 +207,18 @@
         .cta-button.secondary:hover {
             background: var(--charcoal);
             color: white;
+        }
+
+        .hero .cta-button.secondary {
+            color: white;
+            border-color: white;
+            background: transparent;
+        }
+
+        .hero .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border-color: white;
         }
 
         /* Hero Section */
@@ -337,6 +433,30 @@
             margin-top: 3rem;
         }
 
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .capability-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .capability-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
         .layer-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -488,6 +608,82 @@
             font-size: 0.95rem;
         }
 
+        /* Outcomes Section */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .outcome-card {
+            background: white;
+            border: 2px solid rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .outcome-metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--steel-blue);
+            margin-bottom: 1rem;
+        }
+
+        .outcome-card p {
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 1.5rem;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question span {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
         /* Industries Section */
         .industries-grid {
             display: grid;
@@ -614,6 +810,47 @@
             font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.85);
             margin-bottom: 3rem;
+        }
+
+        .demo-expectations {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .demo-expectations h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-expectations ul {
+            list-style: none;
+        }
+
+        .demo-expectations li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .demo-expectations li::before {
+            content: '•';
+            color: var(--regulatory-green);
+            margin-right: 0.7rem;
+        }
+
+        .contact-options {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .contact-options a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
         }
 
         .final-cta-buttons {
@@ -793,7 +1030,9 @@
             }
 
             .solution-layers,
-            .trust-grid {
+            .trust-grid,
+            .capabilities-grid,
+            .outcomes-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -809,6 +1048,16 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .mobile-menu {
+                right: 1rem;
+                left: 1rem;
+                min-width: auto;
             }
 
             .hero h1 {
@@ -869,6 +1118,17 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact" class="cta-button">Request Demo</a></li>
             </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span>
+            </button>
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="#product">Platform</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#industries">Industries</a>
+                <a href="#security">Security</a>
+                <a href="#about">About</a>
+                <a href="#contact" class="cta-button">Request Demo</a>
+            </div>
         </div>
     </nav>
 
@@ -940,6 +1200,38 @@
                     <div class="layer-number">3</div>
                     <h3>Continuous Customization</h3>
                     <p>Your policies evolve. Your agents adapt. Verapath learns your organization's unique requirements and continuously refines governance without manual intervention.</p>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 4rem;">
+                <h2>Platform Capabilities at a Glance</h2>
+                <p>Concrete features your team can validate, document, and deploy safely.</p>
+            </div>
+
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <h4>Policy Management</h4>
+                    <p>Map regulatory frameworks to enforceable AI policies with audit-ready approval workflows.</p>
+                </div>
+                <div class="capability-card">
+                    <h4>Decision Audit Trails</h4>
+                    <p>Capture every prompt, output, and policy check for regulator-ready evidence.</p>
+                </div>
+                <div class="capability-card">
+                    <h4>Deployment Flexibility</h4>
+                    <p>On-prem, private cloud, or hybrid delivery with full data residency control.</p>
+                </div>
+                <div class="capability-card">
+                    <h4>Risk Scoring</h4>
+                    <p>Real-time risk classification to flag and stop unsafe AI outputs.</p>
+                </div>
+                <div class="capability-card">
+                    <h4>Operational Dashboards</h4>
+                    <p>Executive-ready visibility into adoption, usage, and compliance performance.</p>
+                </div>
+                <div class="capability-card">
+                    <h4>Model Governance</h4>
+                    <p>Centralized controls for model approval, lifecycle reviews, and change tracking.</p>
                 </div>
             </div>
         </div>
@@ -1099,6 +1391,55 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="dark">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-label">FAQ</div>
+                <h2>Common Compliance Questions, Answered</h2>
+                <p>Clear responses for regulatory, security, and vendor risk management teams.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        How do you handle data residency and client data protection?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Verapath is deployed inside your environment, ensuring sensitive client data never leaves your infrastructure.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        Can we demonstrate compliance to auditors and regulators?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Every AI interaction is logged with a policy decision trail, so audit evidence is available on demand.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        How long does implementation take?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Most institutions launch a pilot in weeks, not months, using pre-configured agents and governance controls.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        What does vendor risk management look like?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        We provide documentation packages, security assessments, and architecture diagrams to support third-party risk reviews.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Trust Section -->
     <section id="trust">
         <div class="section-header">
@@ -1126,6 +1467,30 @@
                 <div class="trust-icon">🎯</div>
                 <h4>Model-Agnostic</h4>
                 <p>Works with any AI model. No vendor lock-in. Future-proof architecture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes Section -->
+    <section id="outcomes">
+        <div class="section-header">
+            <div class="section-label">Proof & Outcomes</div>
+            <h2>Measured Results for Regulated Institutions</h2>
+            <p>Operational gains and compliance clarity that accelerate decisions.</p>
+        </div>
+
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <div class="outcome-metric">60%</div>
+                <p>Reduction in AI policy review time through automated governance and approval workflows.</p>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-metric">24/7</div>
+                <p>Continuous compliance monitoring across every AI workflow, prompt, and output.</p>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-metric">4x</div>
+                <p>Faster internal AI adoption with clear guardrails and deployment playbooks.</p>
             </div>
         </div>
     </section>
@@ -1175,10 +1540,19 @@
         <div class="final-cta-content">
             <h2>Ready to move beyond the dilemma?</h2>
             <p>Join the financial institutions choosing confidence over chaos.</p>
+            <div class="demo-expectations">
+                <h3>What to Expect in a Demo</h3>
+                <ul>
+                    <li>Review of your top AI governance risks and priorities</li>
+                    <li>Walkthrough of policy enforcement and audit trails</li>
+                    <li>Deployment options tailored to your infrastructure</li>
+                    <li>Typical demo time: 30 minutes with your compliance and IT leads</li>
+                </ul>
+            </div>
             <div id="demo-form-container">
                 <div class="final-cta-buttons">
                     <button class="cta-button" onclick="showDemoForm()">Request a Demo</button>
-                    <a href="#" class="cta-button secondary">Download Overview</a>
+                    <a href="assets/verapath-overview.pdf" class="cta-button secondary" download>Download Overview</a>
                 </div>
                 
                 <form id="demo-form" style="display: none;" onsubmit="handleDemoRequest(event)">
@@ -1207,6 +1581,9 @@
                     </div>
                     <div id="form-message" class="form-message"></div>
                 </form>
+            </div>
+            <div class="contact-options">
+                Prefer email? Reach us at <a href="mailto:info@verapath.ai">info@verapath.ai</a>.
             </div>
         </div>
     </section>
@@ -1241,7 +1618,7 @@
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="mailto:info@verapath.ai">Contact</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
@@ -1260,6 +1637,24 @@
             } else {
                 nav.classList.remove('scrolled');
             }
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            navToggle.classList.toggle('active', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
         });
 
         // Smooth scrolling for anchor links
@@ -1323,7 +1718,7 @@ Submitted: ${new Date().toLocaleString()}
             `.trim();
 
             // Create mailto link
-            const mailtoLink = `mailto:info@verapath.com?subject=Demo Request - ${encodeURIComponent(formData.company)}&body=${encodeURIComponent(emailBody)}`;
+            const mailtoLink = `mailto:info@verapath.ai?subject=Demo Request - ${encodeURIComponent(formData.company)}&body=${encodeURIComponent(emailBody)}`;
             
             // Open email client
             window.location.href = mailtoLink;
@@ -1331,7 +1726,7 @@ Submitted: ${new Date().toLocaleString()}
             // Show success message
             const messageDiv = document.getElementById('form-message');
             messageDiv.className = 'form-message success';
-            messageDiv.textContent = 'Opening your email client... If it doesn\'t open automatically, please email info@verapath.com directly.';
+            messageDiv.textContent = 'Opening your email client... If it doesn\'t open automatically, please email info@verapath.ai directly.';
 
             // Reset form after delay
             setTimeout(() => {
@@ -1348,6 +1743,14 @@ Submitted: ${new Date().toLocaleString()}
                     contactSection.scrollIntoView({ behavior: 'smooth' });
                     setTimeout(showDemoForm, 500);
                 }
+            });
+        });
+
+        // FAQ toggles
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('open');
             });
         });
     </script>
