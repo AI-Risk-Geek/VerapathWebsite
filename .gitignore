@@ -2,7 +2,5 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/VerapathWebsite.slnx/config
-/.vs/VerapathWebsite.slnx/FileContentIndex
-/.vs/ProjectSettings.json
+/.vs
 /.vs/slnx.sqlite
