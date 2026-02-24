@@ -31,12 +31,25 @@
       ]
     }
   </script>
+  <link rel="preload" as="image" href="./assets/img/hero-building.jpg" fetchpriority="high" />
+  <link rel="preload" as="font" href="./assets/fonts/Serrif/Serrif-Regular.woff2" type="font/woff2" crossorigin />
+  <link rel="preload" as="font" href="./assets/fonts/Serrif/Serrif-Medium.woff2" type="font/woff2" crossorigin />
+  <link rel="preload" as="font" href="./assets/fonts/Season/SeasonSans-Regular.woff2" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="./css/global.css" />
   <link rel="stylesheet" href="./css/home.css" />
 </head>
 <body>
   <!-- HERO -->
   <header class="hero">
+    <img
+      class="hero-media"
+      src="./assets/img/hero-building.jpg"
+      alt=""
+      width="2896"
+      height="4096"
+      fetchpriority="high"
+      decoding="async"
+    />
     <nav class="nav" aria-label="Primary">
       <div class="container">
         <a class="brand" href="./index.html" aria-label="Verapath home">Verapath</a>
@@ -158,7 +171,7 @@
       </div>
 
       <div class="pillars-image">
-        <img src="./assets/img/staircase.jpg" alt="" />
+        <img src="./assets/img/staircase.jpg" alt="" width="4096" height="2731" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
