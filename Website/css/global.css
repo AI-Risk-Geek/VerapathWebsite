@@ -115,9 +115,6 @@ h1,h2,h3{margin:0}
   padding:110px 0 48px;
   overflow:hidden;
 }
-.footer .midnight-wave{
-  transform:translateY(-99%);
-}
 .footer .pattern-left{
   position:absolute; left:0; top:-22px;
   width:560px; max-width:55vw;
@@ -179,15 +176,16 @@ h1,h2,h3{margin:0}
 /* Midnight section animated wave */
 .has-midnight-wave{
   position:relative;
+  overflow:visible;
 }
 .midnight-wave{
   position:absolute;
   left:0;
-  top:0;
+  top:-24.5833px;
   width:100%;
-  height:auto;
+  height:101.33818px;
   pointer-events:none;
-  z-index:0;
+  z-index:2;
 }
 .midnight-wave path{
   fill:var(--midnight);
