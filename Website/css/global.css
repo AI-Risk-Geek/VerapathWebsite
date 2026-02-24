@@ -1,6 +1,96 @@
 
 /* Verapath global styles */
 /* Colors from Verapath 2026 Brand Styleguide (Midnight #223029, Bright Green #a3e96b, grays, white) */
+@font-face{
+  font-family:"Serrif";
+  src:
+    url("../assets/fonts/Serrif/Serrif-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Serrif/Serrif-Regular.woff") format("woff");
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Serrif";
+  src:
+    url("../assets/fonts/Serrif/Serrif-RegularItalic.woff2") format("woff2"),
+    url("../assets/fonts/Serrif/Serrif-RegularItalic.woff") format("woff");
+  font-style:italic;
+  font-weight:400;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Serrif";
+  src:
+    url("../assets/fonts/Serrif/Serrif-Medium.woff2") format("woff2"),
+    url("../assets/fonts/Serrif/Serrif-Medium.woff") format("woff");
+  font-style:normal;
+  font-weight:500;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Season Sans";
+  src:
+    url("../assets/fonts/Season/SeasonSans-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Season/SeasonSans-Regular.woff") format("woff");
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Season Sans";
+  src:
+    url("../assets/fonts/Season/SeasonSans-RegularItalic.woff2") format("woff2"),
+    url("../assets/fonts/Season/SeasonSans-RegularItalic.woff") format("woff");
+  font-style:italic;
+  font-weight:400;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Season Sans";
+  src:
+    url("../assets/fonts/Season/SeasonSans-SemiBold.woff2") format("woff2"),
+    url("../assets/fonts/Season/SeasonSans-SemiBold.woff") format("woff");
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Season";
+  src:
+    url("../assets/fonts/Season/SeasonSans-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Season/SeasonSans-Regular.woff") format("woff");
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Season";
+  src:
+    url("../assets/fonts/Season/SeasonSans-RegularItalic.woff2") format("woff2"),
+    url("../assets/fonts/Season/SeasonSans-RegularItalic.woff") format("woff");
+  font-style:italic;
+  font-weight:400;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Season";
+  src:
+    url("../assets/fonts/Season/SeasonSans-SemiBold.woff2") format("woff2"),
+    url("../assets/fonts/Season/SeasonSans-SemiBold.woff") format("woff");
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+}
+
 :root{
   --midnight:#223029;
   --white:#ffffff;
