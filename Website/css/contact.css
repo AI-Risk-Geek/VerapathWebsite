@@ -8,6 +8,9 @@
   color:var(--white);
   overflow:hidden;
 }
+.contact-hero .midnight-wave{
+  transform:translateY(-99%);
+}
 .contact-hero::before{
   content:"";
   position:absolute; inset:0;

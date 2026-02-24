@@ -103,6 +103,10 @@
   background:var(--midnight);
   color:rgba(255,255,255,.88);
   padding:92px 0 96px;
+  overflow:hidden;
+}
+.pillars .midnight-wave{
+  transform:translateY(-99%);
 }
 .pillars-grid{
   display:grid;
@@ -209,6 +213,10 @@
   padding:94px 0 110px;
   color:rgba(255,255,255,.85);
   position:relative;
+  overflow:hidden;
+}
+.cta .midnight-wave{
+  transform:translateY(-99%);
 }
 .cta-inner{
   text-align:center;
