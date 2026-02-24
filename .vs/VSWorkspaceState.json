@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Website",
+    "\\Website\\assets"
   ],
-  "SelectedNode": "\\AGENTS.MD",
+  "SelectedNode": "\\Website\\assets\\verapath-overview.pdf",
   "PreviewInSolutionExplorer": false
 }

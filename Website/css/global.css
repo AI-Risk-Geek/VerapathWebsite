@@ -1,0 +1,181 @@
+
+/* Verapath global styles */
+/* Colors from Verapath 2026 Brand Styleguide (Midnight #223029, Bright Green #a3e96b, grays, white) */
+:root{
+  --midnight:#223029;
+  --white:#ffffff;
+  --gray-01:#909893;
+  --gray-02:#b9c0be;
+  --gray-03:#e0e3e2;
+  --gray-04:#f7f7f7;
+  --bright-green:#a3e96b;
+
+  --container: 1120px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --shadow-soft: 0 18px 45px rgba(0,0,0,.16);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--midnight);
+  background:var(--white);
+  /* If you have the official fonts, drop them into /assets/fonts and update @font-face below. */
+  font-family: "Serrif", "Cormorant Garamond", Georgia, serif;
+  line-height:1.35;
+}
+
+a{color:inherit; text-decoration:none}
+img{max-width:100%; display:block}
+button,input,textarea{font:inherit}
+p{margin:0 0 1rem 0}
+h1,h2,h3{margin:0}
+
+.container{
+  width:min(var(--container), calc(100% - 48px));
+  margin-inline:auto;
+}
+
+.kicker{
+  font-family: "Season Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing:.22em;
+  font-size:11px;
+  text-transform:uppercase;
+  color:rgba(34,48,41,.55);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 18px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,.18);
+  background:transparent;
+  cursor:pointer;
+  font-family: "Season Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:12px;
+}
+
+.btn--green{
+  border:0;
+  background:var(--bright-green);
+  color:#0f1412;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+.btn--dark{
+  background:rgba(34,48,41,.92);
+  color:var(--white);
+  border:1px solid rgba(255,255,255,.22);
+}
+
+/* NAV */
+.nav{
+  position:absolute;
+  inset:0 0 auto 0;
+  height:84px;
+  display:flex;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.20);
+  z-index:5;
+}
+.nav .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand{
+  font-size:34px;
+  color:var(--white);
+  letter-spacing:.01em;
+}
+.nav-links{
+  display:flex;
+  gap:34px;
+  align-items:center;
+  justify-content:center;
+  flex:1;
+  font-family: "Season Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:rgba(255,255,255,.92);
+  font-size:13px;
+}
+.nav-links a{opacity:.95}
+.nav-cta{display:flex; justify-content:flex-end}
+.nav-cta .btn{padding:10px 16px; border-radius:10px}
+
+/* FOOTER */
+.footer{
+  position:relative;
+  background:var(--midnight);
+  color:rgba(255,255,255,.85);
+  padding:110px 0 48px;
+  overflow:hidden;
+}
+.footer .pattern-left{
+  position:absolute; left:0; top:-22px;
+  width:560px; max-width:55vw;
+  opacity:.9;
+  pointer-events:none;
+}
+.footer .pattern-right{
+  position:absolute; right:-50px; bottom:-40px;
+  width:620px; max-width:60vw;
+  opacity:.55;
+  pointer-events:none;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1fr .8fr;
+  gap:54px;
+  align-items:start;
+  padding-bottom:52px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.footer-brand{
+  font-size:40px;
+  color:var(--white);
+  margin-bottom:18px;
+}
+.footer-tagline{
+  font-size:14px;
+  color:rgba(255,255,255,.55);
+  max-width:330px;
+}
+.footer-col h4{
+  font-family:"Season Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin:10px 0 18px;
+  color:rgba(255,255,255,.92);
+}
+.footer-col a{
+  display:block;
+  font-family:"Season Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:12px;
+  color:rgba(255,255,255,.55);
+  margin:10px 0;
+}
+
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding-top:22px;
+  font-family:"Season Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:11px;
+  color:rgba(255,255,255,.42);
+}
+.footer-bottom a{color:rgba(255,255,255,.42)}
+
+/* Responsive */
+@media (max-width: 900px){
+  .nav-links{display:none}
+  .footer-top{grid-template-columns:1fr; gap:26px}
+  .footer{padding-top:80px}
+}
