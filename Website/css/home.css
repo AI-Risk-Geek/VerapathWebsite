@@ -103,6 +103,7 @@
   background:var(--midnight);
   color:rgba(255,255,255,.88);
   padding:92px 0 96px;
+  overflow:visible;
 }
 .pillars-grid{
   display:grid;
@@ -209,6 +210,7 @@
   padding:94px 0 110px;
   color:rgba(255,255,255,.85);
   position:relative;
+  overflow:visible;
 }
 .cta-inner{
   text-align:center;

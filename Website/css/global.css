@@ -173,6 +173,28 @@ h1,h2,h3{margin:0}
 }
 .footer-bottom a{color:rgba(255,255,255,.42)}
 
+/* Midnight section animated wave */
+.has-midnight-wave{
+  position:relative;
+  overflow:visible;
+}
+.midnight-wave{
+  position:absolute;
+  left:0;
+  top:-24.5833px;
+  width:100%;
+  height:101.33818px;
+  pointer-events:none;
+  z-index:2;
+}
+.midnight-wave path{
+  fill:var(--midnight);
+}
+.has-midnight-wave > *:not(.midnight-wave){
+  position:relative;
+  z-index:1;
+}
+
 /* Responsive */
 @media (max-width: 900px){
   .nav-links{display:none}

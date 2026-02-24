@@ -11,9 +11,7 @@
 .contact-hero::before{
   content:"";
   position:absolute; inset:0;
-  background:
-    url("../assets/img/footer_pattern_left_contact.png") left top / 520px auto no-repeat,
-    url("../assets/img/footer_pattern_right_contact.png") right 260px / 720px auto no-repeat;
+
   opacity:.95;
   pointer-events:none;
 }
