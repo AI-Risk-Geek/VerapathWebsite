@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.0.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561C-4E98-8DF7-CB71C2A91475}") = "VerapathWebsite", "VerapathWebsite\VerapathWebsite.esproj", "{C946EFB8-C9A7-4FA7-8724-A4729C9C876E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C946EFB8-C9A7-4FA7-8724-A4729C9C876E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C946EFB8-C9A7-4FA7-8724-A4729C9C876E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
