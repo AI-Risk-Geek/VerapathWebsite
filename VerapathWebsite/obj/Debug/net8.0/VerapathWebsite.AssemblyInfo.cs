@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VerapathWebsite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef4cf49c551237216a334dafae33e47aa3ff760d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c73f71aefc57c5f60cc6a370e9dcc7090a0ab35")]
 [assembly: System.Reflection.AssemblyProductAttribute("VerapathWebsite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VerapathWebsite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
