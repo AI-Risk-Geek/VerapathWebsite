@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="**\*.html" />
+    <None Include="**\*.css" />
+    <None Include="**\*.js" />
+    <None Include="package.json" />
+  </ItemGroup>
+</Project>
