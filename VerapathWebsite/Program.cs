@@ -1,10 +1,7 @@
-using System.Diagnostics;
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
 
-var projectDir = Directory.GetCurrentDirectory();
-var bat = Path.Combine(projectDir, "start-dev.bat");
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
-Process.Start(new ProcessStartInfo("cmd.exe", $"/c \"{bat}\"")
-{
-    WorkingDirectory = projectDir,
-    UseShellExecute = true
-});
+app.Run();

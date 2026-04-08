@@ -1,16 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <OutputType>Exe</OutputType>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="**\*.html" />
-    <None Include="**\*.css" />
-    <None Include="**\*.js" />
-    <None Include="package.json" />
-    <None Include="start-dev.bat" />
-  </ItemGroup>
 </Project>
