@@ -1,9 +1,7 @@
 {
   "profiles": {
     "VerapathWebsite": {
-      "commandName": "Executable",
-      "executablePath": "cmd.exe",
-      "commandLineArgs": "/c start-dev.bat",
+      "commandName": "Project",
       "workingDirectory": "$(ProjectDir)"
     }
   }
