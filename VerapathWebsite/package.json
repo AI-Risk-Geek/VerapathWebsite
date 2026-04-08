@@ -1,0 +1,11 @@
+{
+  "name": "verapath-website",
+  "version": "1.0.0",
+  "description": "Verapath static website",
+  "scripts": {
+    "start": "http-server . -p 5500 --cors -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

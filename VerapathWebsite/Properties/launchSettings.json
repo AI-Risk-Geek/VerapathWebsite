@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "VerapathWebsite": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5500/index.html",
+      "environmentVariables": {}
+    }
+  }
+}
