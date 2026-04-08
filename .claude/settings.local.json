@@ -16,7 +16,19 @@
       "Bash(dotnet --version)",
       "Read(//c/Windows/System32/WindowsPowerShell/v1.0//**)",
       "Bash(sed -i 's/@media/@@media/g; s/@supports/@@supports/g' /tmp/ssr_css.txt)",
-      "Bash(sed -i 's/@media/@@media/g' /tmp/breakpoint_css.txt)"
+      "Bash(sed -i 's/@media/@@media/g' /tmp/breakpoint_css.txt)",
+      "Bash(perl -i -pe ':*)",
+      "Bash(dotnet build:*)",
+      "Bash(curl -sf -o VerapathWebsite/wwwroot/js/__TRACKED_VAR__ __TRACKED_VAR__/__TRACKED_VAR__)",
+      "Bash(grep -o '.\\\\{0,100\\\\}data-framer-name=\"Backdrop\".\\\\{0,200\\\\}' VerapathWebsite/Pages/Index.cshtml)",
+      "Bash(grep -o '.\\\\{0,50\\\\}data-framer-name=\"Tab [123]\".\\\\{0,200\\\\}' VerapathWebsite/Pages/Index.cshtml)",
+      "Bash(grep -o '.\\\\{0,50\\\\}<video[^>]*>.\\\\{0,50\\\\}' VerapathWebsite/Pages/Index.cshtml)",
+      "Bash(grep -o '.\\\\{0,100\\\\}trusted.\\\\{0,200\\\\}' VerapathWebsite/Pages/Index.cshtml -i)",
+      "Bash(grep -o '.\\\\{0,30\\\\}opacity:0.\\\\{0,100\\\\}' VerapathWebsite/Pages/Index.cshtml)",
+      "Bash(grep -o 'framer-s34601-container.\\\\{0,600\\\\}' VerapathWebsite/Pages/Index.cshtml)",
+      "Bash(grep -o '.\\\\{0,20\\\\}opacity:0;transform:rotate.\\\\{0,100\\\\}' VerapathWebsite/Pages/Index.cshtml)",
+      "Bash(grep -o 'framer-s34601-container[^<]*<section[^>]*>.\\\\{0,800\\\\}' VerapathWebsite/Pages/Index.cshtml)",
+      "Bash(grep -o '<section.\\\\{0,400\\\\}')"
     ]
   }
 }
