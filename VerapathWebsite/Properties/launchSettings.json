@@ -1,10 +1,10 @@
 {
   "profiles": {
     "VerapathWebsite": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "http://localhost:5500/index.html",
-      "environmentVariables": {}
+      "commandName": "Executable",
+      "executablePath": "cmd.exe",
+      "commandLineArgs": "/c start-dev.bat",
+      "workingDirectory": "$(ProjectDir)"
     }
   }
 }
