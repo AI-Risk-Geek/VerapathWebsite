@@ -52,6 +52,16 @@
         "net8.0": {
           "framework": "net8.0",
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.13.*, )"
+            },
+            "Microsoft.Graph": {
+              "target": "Package",
+              "version": "[5.*, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,6 +74,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

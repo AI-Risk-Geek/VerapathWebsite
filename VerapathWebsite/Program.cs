@@ -1,10 +1,26 @@
-using System.Diagnostics;
+using VerapathWebsite.Models;
+using VerapathWebsite.Services;
 
-var projectDir = Directory.GetCurrentDirectory();
-var bat = Path.Combine(projectDir, "start-dev.bat");
+var builder = WebApplication.CreateBuilder(args);
 
-Process.Start(new ProcessStartInfo("cmd.exe", $"/c \"{bat}\"")
+builder.Services.Configure<AzureAdOptions>(builder.Configuration.GetSection("AzureAd"));
+builder.Services.AddSingleton<IEmailService, GraphEmailService>();
+builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+if (!app.Environment.IsDevelopment())
 {
-    WorkingDirectory = projectDir,
-    UseShellExecute = true
-});
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthorization();
+app.MapRazorPages();
+app.MapControllerRoute("default", "{controller}/{action}/{id?}");
+
+app.Run();

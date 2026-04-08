@@ -1,7 +1,14 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+## Visual Studio / .NET
+.vs/
+bin/
+obj/
+*.user
+*.suo
+.vsconfig
 
-/.vs
-/.vs/slnx.sqlite
-node_modules/
+## ASP.NET Core secrets (keep base appsettings.json, exclude prod overrides with real secrets)
+appsettings.Production.json
+
+## OS
+.DS_Store
+Thumbs.db

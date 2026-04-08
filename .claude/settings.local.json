@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p VerapathWebsite/wwwroot/images VerapathWebsite/wwwroot/videos)",
+      "Bash(cp verapath/framerusercontent.com/images/* VerapathWebsite/wwwroot/images/)",
+      "Bash(cp \"verapath/Verapath Intro Video.mp4\" \"VerapathWebsite/wwwroot/videos/\")",
+      "Bash(python3 -c ':*)",
+      "Bash(node -e ':*)",
+      "Bash(python -c ':*)",
+      "Bash(where python3.exe)",
+      "Bash(where py.exe)",
+      "Bash(where python.exe)",
+      "Bash(where node:*)",
+      "Bash(C:/Users/frank/AppData/Local/Microsoft/WindowsApps/python3.exe -c \"print\\('hello'\\)\")",
+      "Bash(powershell -Command \"Get-Content 'C:\\\\Users\\\\frank\\\\source\\\\repos\\\\VerapathWebsite\\\\verapath\\\\verapath.com\\\\contact.html' | Select-String -Pattern '<title>|<meta name=\\\\\"description\\\\\"|<link rel=\\\\\"canonical\\\\\"|<meta name=\\\\\"robots\\\\\"|og:|twitter:' | Select-Object -First 30\")",
+      "Bash(dotnet --version)",
+      "Read(//c/Windows/System32/WindowsPowerShell/v1.0//**)",
+      "Bash(sed -i 's/@media/@@media/g; s/@supports/@@supports/g' /tmp/ssr_css.txt)",
+      "Bash(sed -i 's/@media/@@media/g' /tmp/breakpoint_css.txt)"
+    ]
+  }
+}
