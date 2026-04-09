@@ -47,11 +47,325 @@
 @@font-face { font-family: "Serrif Regular Placeholder"; src: local("Arial"); ascent-override: 87.74%; descent-override: 21.69%; line-gap-override: 0.00%; size-adjust: 103.71% }
 @@font-face { font-family: "Serrif Medium Placeholder"; src: local("Arial"); ascent-override: 85.33%; descent-override: 21.10%; line-gap-override: 0.00%; size-adjust: 106.65% }
 @@font-face { font-family: "Inter Placeholder"; src: local("Arial"); ascent-override: 89.79%; descent-override: 22.36%; line-gap-override: 0.00%; size-adjust: 107.89% }</style>
+    <style id="vp-layout-css">
+        /* ── Nav scroll transition ── */
+        #vp-nav {
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+                        -webkit-backdrop-filter 0.3s ease, border-color 0.3s ease;
+        }
+        #vp-nav.vp-nav-hero {
+            background-color: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-bottom-color: transparent;
+        }
+        /* Logo swap */
+        #vp-nav-logo .logo-light { display: none; }
+        #vp-nav.vp-nav-hero #vp-nav-logo .logo-dark  { display: none; }
+        #vp-nav.vp-nav-hero #vp-nav-logo .logo-light { display: block; }
+        /* Light text + active link + hamburger lines */
+        #vp-nav.vp-nav-hero #vp-nav-links a { color: rgba(255,255,255,0.9); }
+        #vp-nav.vp-nav-hero #vp-nav-links a[data-framer-page-link-current="true"] { color: rgb(163,233,107); }
+        #vp-nav.vp-nav-hero #vp-nav-hamburger span { background-color: rgba(255,255,255,0.9); }
+
+        /* ── Hide Framer's SSR nav and footer (replaced by layout nav/footer below) ── */
+        .framer-iR7wg,
+        .framer-YlVOa { display: none !important; }
+
+        /* ── Shared nav ── */
+        #vp-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(248, 248, 243, 0.85);
+            border-bottom: 1px solid rgba(59, 59, 51, 0.2);
+        }
+        #vp-nav-inner {
+            max-width: 1366px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 68px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        /* Logo — left edge */
+        #vp-nav-left {
+            display: flex;
+            align-items: center;
+            z-index: 1;
+        }
+        #vp-nav-logo img {
+            height: 28px;
+            width: auto;
+            display: block;
+        }
+        /* Links — absolutely centered in the bar */
+        #vp-nav-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #vp-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #vp-nav-links a {
+            font-family: "Season Sans Regular", "Season Sans Regular Placeholder", Arial, sans-serif;
+            font-size: 15px;
+            color: #3b3b33;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+        #vp-nav-links a:hover { opacity: 0.55; }
+        #vp-nav-links a[data-framer-page-link-current="true"] { color: rgb(14, 166, 101); }
+        /* CTA + hamburger — right edge */
+        #vp-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 1;
+        }
+        #vp-nav-cta {
+            font-family: "Season Sans SemiBold", "Season Sans Regular Placeholder", Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 650;
+            color: #223029;
+            text-decoration: none;
+            background-color: rgb(163, 233, 107);
+            border-radius: 6px;
+            padding: 9px 20px;
+            white-space: nowrap;
+            transition: opacity 0.2s ease;
+        }
+        #vp-nav-cta:hover { opacity: 0.85; }
+        #vp-nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            flex-shrink: 0;
+        }
+        #vp-nav-hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: rgb(59, 59, 51);
+            border-radius: 1px;
+            transition: background-color 0.3s ease;
+        }
+        @@media (max-width: 809px) {
+            #vp-nav-center, #vp-nav-cta { display: none; }
+            #vp-nav-hamburger { display: flex; }
+        }
+        @@media (min-width: 810px) and (max-width: 1137px) {
+            #vp-nav-cta { display: none; }
+            #vp-nav-hamburger { display: flex; }
+        }
+
+        /* ── Shared footer ── */
+        #vp-footer {
+            background-color: #223029;
+            color: #fff;
+            padding: 70px 0 54px;
+        }
+        #vp-footer-inner {
+            max-width: 1366px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        #vp-footer-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            padding-bottom: 64px;
+        }
+        #vp-footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+        #vp-footer-logo img {
+            height: 62px;
+            width: auto;
+        }
+        #vp-footer-tagline {
+            font-family: "Season Sans Regular", "Season Sans Regular Placeholder", Arial, sans-serif;
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+            max-width: 360px;
+        }
+        #vp-footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-self: start;
+            justify-self: end;
+        }
+        .vp-footer-link-col {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .vp-footer-link-col a {
+            font-family: "Season Sans Regular", "Season Sans Regular Placeholder", Arial, sans-serif;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+        .vp-footer-link-col a:hover { color: #fff; }
+        #vp-footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            padding-top: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        #vp-footer-legal {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        #vp-footer-legal span {
+            font-family: "Season Sans Regular", "Season Sans Regular Placeholder", Arial, sans-serif;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+        #vp-footer-legal a {
+            font-family: "Season Sans Regular", "Season Sans Regular Placeholder", Arial, sans-serif;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+        }
+        #vp-footer-legal a:hover { color: rgba(255,255,255,0.8); }
+        #vp-footer-social {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        #vp-footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            color: rgba(255,255,255,0.5);
+            fill: rgba(255,255,255,0.5);
+        }
+        #vp-footer-social a:hover { fill: #fff; }
+        #vp-footer-social svg { width: 18px; height: 18px; }
+        @@media (max-width: 809px) {
+            #vp-footer-top { grid-template-columns: 1fr; gap: 64px; }
+            #vp-footer-links-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                justify-self: start;
+            }
+            #vp-footer-bottom { flex-direction: column; align-items: flex-start; }
+        }
+        @@media (min-width: 810px) and (max-width: 1137px) {
+            #vp-footer-top { grid-template-columns: 1fr; gap: 80px; }
+            #vp-footer-links-grid { justify-self: start; }
+        }
+    </style>
     @RenderSection("HeadMeta", required: false)
     @RenderSection("HeadStyles", required: true)
 </head>
 <body>
+    <!-- ── Shared Navigation ── -->
+    <header id="vp-nav" role="banner">
+        <div id="vp-nav-inner">
+            <div id="vp-nav-left">
+                <a href="/" id="vp-nav-logo" aria-label="Verapath home">
+                    <img src="/images/f9wDteeBA7Lph0tkGvmtHd1tyE.svg" alt="Verapath" width="128" height="34" class="logo-dark">
+                    <img src="/images/dqvaMXiMIURucDW1ugGZcuFmvUU.svg" alt="Verapath" width="128" height="34" class="logo-light">
+                </a>
+            </div>
+            <nav aria-label="Main navigation">
+                <ul id="vp-nav-links">
+                    <li><a href="/#product">Product</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="vp-nav-right">
+                <a href="/contact" id="vp-nav-cta">Request a Demo</a>
+                <button id="vp-nav-hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
     @RenderBody()
+
+    <!-- ── Shared Footer ── -->
+    <footer id="vp-footer">
+        <div id="vp-footer-inner">
+            <div id="vp-footer-top">
+                <div id="vp-footer-brand">
+                    <a id="vp-footer-logo" href="/" aria-label="Verapath home">
+                        <img src="/images/dqvaMXiMIURucDW1ugGZcuFmvUU.svg" alt="Verapath" width="100" height="62">
+                    </a>
+                    <p id="vp-footer-tagline">Innovation without compromise. Security without sacrifice. Trust you can prove.</p>
+                </div>
+                <div id="vp-footer-links-grid">
+                    <div class="vp-footer-link-col">
+                        <a href="/#product">Product</a>
+                    </div>
+                    <div class="vp-footer-link-col">
+                        <a href="/about">About</a>
+                    </div>
+                    <div class="vp-footer-link-col">
+                        <a href="/contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div id="vp-footer-bottom">
+                <div id="vp-footer-legal">
+                    <span>Copyright &copy; 2026 Verapath</span>
+                    <div>
+                        <a href="https://app.websitepolicies.com/policies/view/6p0hooye" target="_blank" rel="noopener">Privacy Policy</a>
+                        <span style="color:rgba(255,255,255,0.2);margin:0 8px">|</span>
+                        <a href="https://app.websitepolicies.com/policies/view/u896s37o" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+                <div id="vp-footer-social">
+                    <a href="https://www.linkedin.com/company/artificial-intelligence-risk-inc" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M 16.668 0 L 1.329 0 C 0.594 0 0 0.58 0 1.297 L 0 16.699 C 0 17.416 0.594 18 1.329 18 L 16.668 18 C 17.402 18 18 17.416 18 16.703 L 18 1.297 C 18 0.58 17.402 0 16.668 0 Z M 5.34 15.339 L 2.668 15.339 L 2.668 6.746 L 5.34 6.746 Z M 4.004 5.576 C 3.146 5.576 2.454 4.883 2.454 4.029 C 2.454 3.175 3.146 2.482 4.004 2.482 C 4.859 2.482 5.551 3.175 5.551 4.029 C 5.551 4.88 4.859 5.576 4.004 5.576 Z M 15.339 15.339 L 12.67 15.339 L 12.67 11.162 C 12.67 10.167 12.653 8.884 11.282 8.884 C 9.893 8.884 9.682 9.97 9.682 11.092 L 9.682 15.339 L 7.017 15.339 L 7.017 6.746 L 9.577 6.746 L 9.577 7.921 L 9.612 7.921 C 9.967 7.246 10.839 6.532 12.136 6.532 C 14.839 6.532 15.339 8.311 15.339 10.624 Z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="https://x.com/VerapathAI" target="_blank" rel="noopener" aria-label="X (Twitter)">
+                        <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M 14.176 0.865 L 16.936 0.865 L 10.906 7.757 L 18 17.134 L 12.445 17.134 L 8.095 11.447 L 3.117 17.134 L 0.355 17.134 L 6.806 9.762 L 0 0.865 L 5.696 0.865 L 9.628 6.064 Z M 13.208 15.483 L 14.737 15.483 L 4.865 2.43 L 3.224 2.43 Z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCYumTV1zlfoTvSrIXnyA23w" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg viewBox="0 0 18 12.661" aria-hidden="true"><path d="M 17.82 2.732 C 17.82 2.732 17.645 1.492 17.104 0.946 C 16.418 0.229 15.652 0.226 15.3 0.183 C 12.783 0 9.004 0 9.004 0 L 8.996 0 C 8.996 0 5.217 0 2.7 0.183 C 2.348 0.225 1.582 0.229 0.896 0.946 C 0.356 1.491 0.183 2.732 0.183 2.732 C 0.183 2.732 0 4.192 0 5.647 L 0 7.011 C 0 8.465 0.18 9.925 0.18 9.925 C 0.18 9.925 0.355 11.166 0.893 11.711 C 1.579 12.428 2.479 12.404 2.879 12.481 C 4.321 12.618 9 12.661 9 12.661 C 9 12.661 12.783 12.653 15.3 12.474 C 15.652 12.432 16.418 12.428 17.103 11.711 C 17.645 11.166 17.821 9.925 17.821 9.925 C 17.821 9.925 18 8.47 18 7.011 L 18 5.647 C 18 4.191 17.82 2.732 17.82 2.732 Z M 7.14 8.666 L 7.14 3.607 L 12.002 6.146 L 7.14 8.665 Z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     @RenderSection("Scripts", required: false)
     <script src="/js/site.js" defer></script>
 </body>

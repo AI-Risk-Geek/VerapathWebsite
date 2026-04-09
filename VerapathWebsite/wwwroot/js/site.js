@@ -3,21 +3,14 @@
 
     // ─── MOBILE NAV ──────────────────────────────────────────────────────────────
 
-    function buildMobileOverlay() {
-        var seen = {};
-        var links = [];
-        document.querySelectorAll('a[href]').forEach(function (a) {
-            var href = a.getAttribute('href');
-            if ((href === '/' || href === '/about' || href === '/contact') && !seen[href]) {
-                seen[href] = true;
-                var text = (a.innerText || a.textContent).trim();
-                if (text) links.push({ href: href, text: text });
-            }
-        });
-        if (links.length === 0) {
-            links = [{ href: '/', text: 'Home' }, { href: '/about', text: 'About' }, { href: '/contact', text: 'Contact' }];
-        }
+    var links = [
+        { href: '/', text: 'Home' },
+        { href: '/#product', text: 'Product' },
+        { href: '/about', text: 'About' },
+        { href: '/contact', text: 'Contact' }
+    ];
 
+    function buildMobileOverlay() {
         var overlay = document.createElement('div');
         overlay.id = 'vp-mobile-nav';
         overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgb(248,248,243);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.25s ease';
@@ -26,42 +19,50 @@
             var a = document.createElement('a');
             a.href = link.href;
             a.textContent = link.text;
-            a.style.cssText = 'font-size:1.75rem;color:#1a1a1a;text-decoration:none;font-family:inherit;letter-spacing:-0.02em';
+            a.style.cssText = 'font-size:1.75rem;color:#3b3b33;text-decoration:none;font-family:inherit;letter-spacing:-0.02em';
             overlay.appendChild(a);
         });
 
         var closeBtn = document.createElement('button');
         closeBtn.setAttribute('aria-label', 'Close menu');
         closeBtn.innerHTML = '&#x2715;';
-        closeBtn.style.cssText = 'position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;background:none;border:none;cursor:pointer;color:#1a1a1a;padding:0.5rem;line-height:1';
+        closeBtn.style.cssText = 'position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;background:none;border:none;cursor:pointer;color:#3b3b33;padding:0.5rem;line-height:1';
         closeBtn.addEventListener('click', function () { closeMobileNav(overlay); });
         overlay.appendChild(closeBtn);
         document.body.appendChild(overlay);
         return overlay;
     }
 
-    function openMobileNav(overlay) {
+    function openMobileNav(overlay, btn) {
         overlay.style.pointerEvents = 'auto';
         overlay.style.opacity = '1';
         document.body.style.overflow = 'hidden';
+        if (btn) btn.setAttribute('aria-expanded', 'true');
     }
 
-    function closeMobileNav(overlay) {
+    function closeMobileNav(overlay, btn) {
         overlay.style.pointerEvents = 'none';
         overlay.style.opacity = '0';
         document.body.style.overflow = '';
+        if (btn) btn.setAttribute('aria-expanded', 'false');
     }
 
     function initMobileNav() {
         var overlay = null;
-        document.querySelectorAll('[data-framer-name="Hamburger"]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                if (!overlay) overlay = buildMobileOverlay();
-                overlay.style.pointerEvents === 'auto' ? closeMobileNav(overlay) : openMobileNav(overlay);
-            });
+        var hamburger = document.getElementById('vp-nav-hamburger');
+        if (!hamburger) return;
+
+        hamburger.addEventListener('click', function () {
+            if (!overlay) overlay = buildMobileOverlay();
+            overlay.style.pointerEvents === 'auto'
+                ? closeMobileNav(overlay, hamburger)
+                : openMobileNav(overlay, hamburger);
         });
+
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && overlay && overlay.style.pointerEvents === 'auto') closeMobileNav(overlay);
+            if (e.key === 'Escape' && overlay && overlay.style.pointerEvents === 'auto') {
+                closeMobileNav(overlay, hamburger);
+            }
         });
     }
 
@@ -251,9 +252,34 @@
         });
     }
 
+    // ─── HERO NAV TRANSPARENCY (home page only) ───────────────────────────────────
+
+    function initHeroNav() {
+        var nav = document.getElementById('vp-nav');
+        if (!nav) return;
+
+        // Only apply on the home page
+        var path = window.location.pathname.replace(/\/+$/, '') || '/';
+        if (path !== '' && path !== '/') return;
+
+        var SCROLL_THRESHOLD = 80; // px scrolled before nav becomes opaque
+
+        function updateNav() {
+            if (window.scrollY > SCROLL_THRESHOLD) {
+                nav.classList.remove('vp-nav-hero');
+            } else {
+                nav.classList.add('vp-nav-hero');
+            }
+        }
+
+        nav.classList.add('vp-nav-hero');
+        window.addEventListener('scroll', updateNav, { passive: true });
+    }
+
     // ─── INIT ─────────────────────────────────────────────────────────────────────
 
     document.addEventListener('DOMContentLoaded', function () {
+        initHeroNav();
         initMobileNav();
         initTabs();
         initVideos();
